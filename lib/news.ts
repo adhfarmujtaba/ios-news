@@ -37,3 +37,20 @@ export async function generateStaticParams() {
   }))
 }
 
+export function getTrendingNews(limit = 5): NewsItem[] {
+  return newsData
+    .sort((a, b) => b.views - a.views)
+    .slice(0, limit);
+}
+
+export function getForYouNews(limit = 10): NewsItem[] {
+  // In a real app, this would be personalized based on user preferences
+  return newsData.slice(0, limit);
+}
+
+export function getFollowingNews(limit = 5): NewsItem[] {
+  // In a real app, this would be based on followed sources/authors
+  return newsData.filter(news => 
+    ["Sarah Tech", "Green Reporter"].includes(news.author)
+  ).slice(0, limit);
+}
