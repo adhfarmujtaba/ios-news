@@ -151,13 +151,14 @@ export default function Home() {
                 </div>
               )}
 
-              <CategoryFilter className="mb-6" />
               
               <div className="mb-4 flex justify-end items-end">
                 <ViewToggle />
               </div>
               
               <NewsProvider initialNews={getForYouNews()}>
+              <CategoryFilter className="mb-6" />
+
                 <NewsGrid />
               </NewsProvider>
             </div>
